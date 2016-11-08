@@ -1,5 +1,1 @@
-<table>
-    <tr>
-        <td>Foo</td>
-    </tr>
-</table>
+<p>Calculator<a href="https://rilakryan.github.io/dosomething/practice1/calculator.html"></a>
