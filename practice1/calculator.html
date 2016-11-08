@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+  <html>
+  <div id='Calculator'>
+    <head>
+      <meta charset="utf-8">
+      <title>Calculator</title>
+      <link rel="stylesheet" type="text/css" href="calculator.css">
+    </head>
+  <body>
+    <div id='title'>
+      <h4>CALCULATOR</h4>
+    </div>
+  
+    <div id="answer">
+      <input type="text" style="text-align:right" id="result"  value="0" >
+    </div>
+
+    <div>
+      <button onClick="clearall()">AC</button>
+      <button onClick="clearone()">CE</button>
+      <button onClick="opButton('/')">&divide;</button>
+      <button onClick="opButton('*')">x</button>
+      <button onClick="number('7')">7</button>
+      <button onClick="number('8')">8</button>
+      <button onClick="number('9')">9</button>
+      <button onClick="opButton('-')">-</button>
+      <button onClick="number('4')">4</button>
+      <button onClick="number('5')">5</button>
+      <button onClick="number('6')">6</button>
+      <button onClick="opButton('+')">+</button>
+      <button onClick="number('1')">1</button>
+      <button onClick="number('2')">2</button>
+      <button onClick="number('3')">3</button>
+      <button id='equalbtn' onClick="opButton('=')">=</button>
+      <button id='num0' onClick="number('0')">0</button>
+      <button onClick=dot()>.</button>
+  </div>
+
+  
+</body>
+<script src="calculator.js"></script>
+</div>
+</html>
+
