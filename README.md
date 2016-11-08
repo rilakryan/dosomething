@@ -1,5 +1,3 @@
 <ol>
-<li>Bird</li>
-<li>McHale</li>
-<li>Parish</li>
+<li><a href="https://rilakryan.github.io/dosomething/practice1/calculator.html">Calculator</a></li>
 </ol>
