@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Todo List</title>
+    <link rel="stylesheet" type="text/css" href="todos.css">
+  </head>
+  <body>
+	<section >
+		<header>
+  			<div id="top">
+	 	 		<h1>todos</h1>
+         		<input type="text"  placeholder="What needs to be done?" id="addTodoTextInput">
+	 		</div>
+	 		<div id="mid" class='clear'>
+	 			<div class="checkbox"  id="toggleAll" onclick ="todoList.toggleAll()"></div>
+	 			<a href="#" class="myButton" id="All"  onclick ="view.displayTodosAll()">All</a>
+	 			<a href="#" class="myButton" id="Active"  onclick ="view.displayTodosActive()">Active</a>
+	 			<a href="#" class="myButton" id="Completed"  onclick ="view.displayTodosCompleted()">Completed</a>
+	 			<label id="itemLeft">0 items left</label>
+	 			<a href="#" class="myButton" id="clearCompleted"  onclick ="view.createclearCompleted()">Clear completed</a>
+	 		</div>
+		</header>
+			<section>
+	 			<ul>
+    			</ul>
+			</section>
+			<footer>
+				<div>Double-click to edit a todo</div>
+			</footer>
+	</section>
+    <script src="todos.js"></script>
+  </body>
+</html>
+
