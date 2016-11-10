@@ -1,71 +1,75 @@
+var todos = new Array();
+var mode = 1;
 
+  function todo(todoText ) {
+    this.todoText = todoText;
+    this.completed = false;
+  }
 
-var todoList = {
-  todos: [],
-  mode: 1,
-  addTodo: function(todoText) {
-    this.todos.push({
-      todoText: todoText,
-      completed: false
-    });
-  },
-  changeTodo: function(position, todoText) {
-    this.todos[position].todoText = todoText;
-    view.displayTodos();
-  },
-  deleteTodo: function(position) {
-    this.todos.splice(position, 1);
-    view.displayTodos();
-  },
-  //是否完成
-  toggleCompleted: function(position) {
-    var todo = this.todos[position];
+  function addTodo (todoText){
+    todos.push( new todo(todoText));
+  }
+
+   function changeTodo(position, todoText) {
+    todos[position].todoText = todoText;
+    displayTodos();
+  }
+
+   function deleteTodo(position) {
+    todos.splice(position, 1);
+    displayTodos();
+  }
+
+   function toggleCompleted(position) {
+    var todo = todos[position];
     todo.completed = !todo.completed;
-    view.displayTodos();
-  },
-  //全部完成
-  toggleAll: function() {
-    var totalTodos = this.todos.length;
+    displayTodos();
+  }
+
+   function toggleAll() {
+    var totalTodos = todos.length;
     var completedTodos = 0;
-    // 得到完成的數量
+    // todo完成的數量
     for (var i = 0; i < totalTodos; i++) {
-      if (this.todos[i].completed === true) {
+      if (todos[i].completed === true) {
         completedTodos++;
       }
     }
-    //如果全部都是ture,就變成false
+    //如果todo的完成數與todo數量相同，則全部都是ture,就變成false
     if (completedTodos === totalTodos) {
       for (var i = 0; i < totalTodos; i++) {
-        this.todos[i].completed = false;
+        todos[i].completed = false;
       }
     //如果不是全部都true，就變成true
     } else {
       for (var i = 0; i < totalTodos; i++) {
-        this.todos[i].completed = true;
+        todos[i].completed = true;
       }
     }
-    view.displayTodos();
-  },
-};
+    displayTodos();
+  }
 
-var view = {
-  displayTodos: function() {
+
+
+  function displayTodos() {
     /////檢查未完成的數量///////////////
-   this.createItemLeftClearCompleted();
-   //saveToStorage();
+   createItemLeftClearCompleted();
+   /////////////從local storage存入/////////////////////////
+   save();
     /////////選擇ul放入li,div,checkbox textcontent deletebutton
     var todosUl = document.querySelector('ul');
+    /////////接著清空ul，根據目前的mode判斷要顯示那些todo/////////////
     todosUl.innerHTML = '';
-    for (var i = 0; i < todoList.todos.length; i++) {
-      if (todoList.mode === 1){////////////////mode:1 是 show all
+    for (var i = 0; i < todos.length; i++) {
+      if (mode === 1){////////////////mode:1 是 show all
         var todoLi = document.createElement('li');
         todoLi.className = "clear";
         /////新增label放入todotext
         var cTodotext = document.createElement("label");
         cTodotext.className = 'showtext';
-        cTodotext.textContent = todoList.todos[i].todoText;
+        cTodotext.textContent = todos[i].todoText;
         //若是完成就給刪除線和透明度
-          if (todoList.todos[i].completed === true) {
+          if (todos[i].completed === true) {
             cTodotext.style.textDecoration = 'line-through';
             cTodotext.style.opacity = '0.3';
           }
@@ -73,7 +77,7 @@ var view = {
         var togglecheckbox = document.createElement("button");
         togglecheckbox.className = 'togglecheckbox';
         //若是完成就給打勾的圖示
-        if(todoList.todos[i].completed === true){
+        if(todos[i].completed === true){
           togglecheckbox.textContent="\u2714";
         }
         else{
@@ -84,20 +88,20 @@ var view = {
 
         todoLi.appendChild(togglecheckbox);
         todoLi.appendChild(cTodotext);
-        todoLi.appendChild(this.createDeleteButton());
+        todoLi.appendChild(createDeleteButton());
 
         todoLi.id = i;
       }
-      else if(todoList.mode == 2 && todoList.todos[i].completed == false){//mode:2是 show active completed = false 未完成的
+      else if(mode == 2 && todos[i].completed == false){//mode:2是 show active completed = false 未完成的
         var todoLi = document.createElement('li');
         todoLi.className = "clear";
 
         /////新增label放入todotext
         var cTodotext = document.createElement("label");
         cTodotext.className = 'showtext';
-        cTodotext.textContent = todoList.todos[i].todoText;
+        cTodotext.textContent = todos[i].todoText;
         //若是完成就給刪除線和透明度
-        if (todoList.todos[i].completed === true) {
+        if (todos[i].completed === true) {
           cTodotext.style.textDecoration = 'line-through';
           cTodotext.style.opacity = '0.3';
           }
@@ -105,7 +109,7 @@ var view = {
         var togglecheckbox = document.createElement("button");
         togglecheckbox.className = 'togglecheckbox';
         //若是完成就給打勾的圖示
-          if(todoList.todos[i].completed === true){
+          if(todos[i].completed === true){
             togglecheckbox.textContent="\u2714";
           }
           else{
@@ -116,20 +120,20 @@ var view = {
 
         todoLi.appendChild(togglecheckbox);
         todoLi.appendChild(cTodotext);
-        todoLi.appendChild(this.createDeleteButton());
+        todoLi.appendChild(createDeleteButton());
 
         todoLi.id = i;
       }
-      else if(todoList.mode == 3 && todoList.todos[i].completed == true){//mode:3是 show complete completed = true 已完成的
+      else if(mode == 3 && todos[i].completed == true){//mode:3是 show complete completed = true 已完成的
         var todoLi = document.createElement('li');
         todoLi.className = "clear";
 
         /////新增label放入todotext
         var cTodotext = document.createElement("label");
         cTodotext.className = 'showtext';
-        cTodotext.textContent = todoList.todos[i].todoText;
+        cTodotext.textContent = todos[i].todoText;
         //若是完成就給刪除線和透明度
-        if (todoList.todos[i].completed === true) {
+        if (todos[i].completed === true) {
           cTodotext.style.textDecoration = 'line-through';
           cTodotext.style.opacity = '0.3';
         }
@@ -137,7 +141,7 @@ var view = {
         var togglecheckbox = document.createElement("button");
         togglecheckbox.className = 'togglecheckbox';
         //若是完成就給打勾的圖示
-        if(todoList.todos[i].completed === true){
+        if(todos[i].completed === true){
           togglecheckbox.textContent="\u2714";
         }
         else{
@@ -148,62 +152,62 @@ var view = {
 
         todoLi.appendChild(togglecheckbox);
         todoLi.appendChild(cTodotext);
-        todoLi.appendChild(this.createDeleteButton());
+        todoLi.appendChild(createDeleteButton());
 
         todoLi.id = i;
       }
     }
-  },
+  }
   /************************************
   *
-  * button 選擇 all active completed 切換 mode
+  * button 選擇 all active completed 切換mode，顯示為哪種模式
    **************************************/
-  displayTodosAll: function() {
+  function displayTodosAll() {
     document.getElementById('All').style.border = "2px solid rgba(255, 87, 34, 0.36)";
     document.getElementById('Active').style.border = "";
     document.getElementById('Completed').style.border = "";
-    todoList.mode = 1 ;
-    view.displayTodos();
-  },
+    mode = 1 ;
+    displayTodos();
+  }
 
-  displayTodosActive: function() {
+  function displayTodosActive() {
     document.getElementById('All').style.border = "";
     document.getElementById('Active').style.border = "2px solid rgba(255, 87, 34, 0.36)";
     document.getElementById('Completed').style.border = "";
-    todoList.mode = 2 ;
-    view.displayTodos();
-  },
+    mode = 2 ;
+    displayTodos();
+  }
 
-   displayTodosCompleted: function() {
+  function displayTodosCompleted() {
     document.getElementById('All').style.border = "";
     document.getElementById('Active').style.border = "";
     document.getElementById('Completed').style.border = "2px solid rgba(255, 87, 34, 0.36)";
-    todoList.mode = 3 ;
-    view.displayTodos();
-  },
+    mode = 3 ;
+    displayTodos();
+  }
   /*********************************
   *
   *   產生deletebutton 放入 DOM中
   ***********************************/
-  createDeleteButton: function(){
+  function createDeleteButton(){
     var deleteButton =document.createElement('button');
     deleteButton.textContent = '\u2716';
     deleteButton.className = 'deleteButton';
     return deleteButton;
-  },
+  }
 /***************************************
  * itemleft
  * clear completed
  *******************************/
-  createItemLeftClearCompleted: function(){
+  function createItemLeftClearCompleted(){
     var itemLeft = document.querySelector('#itemLeft');
     var clearCompleted = document.querySelector("#clearCompleted");
     var toggleAllbutton = document.querySelector("#toggleAll");
     var countleft = 0 ;
     var countcompleted = 0 ;
     /*****************顯示itemleft**********************/
-    for(var i = 0; i < todoList.todos.length; i++){
-      if(todoList.todos[i].completed === false){
+    for(var i = 0; i < todos.length; i++){
+      if(todos[i].completed === false){
         countleft++;
       }
       else{
@@ -219,27 +223,34 @@ var view = {
      clearCompleted.style.display = 'none';
    /******************顯示toggleAllbutton完成的圖示*********/
     }
-    if((todoList.todos.length ===0) ||(countcompleted !== todoList.todos.length)){
+    if((todos.length ===0) ||(countcompleted !== todos.length)){
       toggleAllbutton.textContent ="";
     }
     else{
       toggleAllbutton.textContent ="\u2714";
     }
-  },
-  /****找出需要刪除的完成todo*****/
-  createclearCompleted: function(){
+  }
+
+  /**********刪除已完成todo*********
+  *
+  *如果有刪除就不改變目前array[]，因為刪除會造成array[]值的變動
+  ****************/
+  function createclearCompleted(){
     var position = 0;
-    while(position < todoList.todos.length){
-      if(todoList.todos[position].completed === true){
-        todoList.deleteTodo(position);
+    while(position < todos.length){
+      if(todos[position].completed === true){
+        deleteTodo(position);
       }
       else{
         position++;
       }
     }
-  },
-
-  setUpEventListeners: function(){
+  }
+/*******************
+*滑鼠點擊checkbox，delete，新增todo，修改todo內容
+*
+* *******************/
+  function setUpEventListeners(){
     var todosUl = document.querySelector('ul');
     todosUl.addEventListener('click', function(event){
       //滑鼠點擊
@@ -248,11 +259,11 @@ var view = {
       position =parseInt(elementClicked.parentNode.id);//string轉數字
       //點選刪除鍵，就刪除
       if(elementClicked.className === 'deleteButton'){
-        todoList.deleteTodo(position);
+        deleteTodo(position);
       }
       //點選checkbox，就完成
       if(elementClicked.className ==='togglecheckbox'){
-        todoList.toggleCompleted(position);
+        toggleCompleted(position);
       }
     });
     /*************輸入*************************/
@@ -260,10 +271,10 @@ var view = {
     addTodoTextInput.addEventListener('keydown', function(event){
       //按Enter(keyCode:13)會輸入，並且string不是空白的才輸入
       if ((event.keyCode == 13) && (addTodoTextInput.value) !== '') {
-        todoList.addTodo(addTodoTextInput.value); // addTodoTextInput.value輸入到array
+        addTodo(addTodoTextInput.value); // addTodoTextInput.value輸入到array
         addTodoTextInput.value = '';        // 輸入完後把addTodoTextInput清空為空白
       }
-      view.displayTodos();
+      displayTodos();
     });
     /**********滑鼠雙擊dblclick改變已存在的todo**********************/
     todosUl.addEventListener('dblclick', function(event){
@@ -272,29 +283,54 @@ var view = {
       if(elementClicked.className === 'showtext'){
         var edittext = document.createElement("input");
         edittext.className = 'edittext';
-        edittext.value =  todoList.todos[position].todoText;
+        edittext.value =  todos[position].todoText;
         elementClicked.parentNode.replaceChild(edittext, elementClicked.parentNode.childNodes[1]);//讓input text顯示出來
         edittext.focus();/****要先focus才能blur**************/
         if(edittext.value!==''){//若輸入的值非空值，按下enter鍵或是滑鼠點選其他地方輸入框就會消失
           edittext.addEventListener('keydown', function(event){
             if((event.keyCode == 13) && (edittext.value) !== ''){//若不是空值，改變todo的內容
-              todoList.changeTodo(position ,edittext.value);
+              changeTodo(position ,edittext.value);
             }
             else if((event.keyCode == 13) && (edittext.value) == ''){//若是空值則刪除。
-              todoList.deleteTodo(position);
+              deleteTodo(position);
             }
           });
           edittext.addEventListener('blur', function(event){//按下點選非輸入框的區域後
             if(edittext.value!== ''){//若不是空值，改變todo的內容
-              todoList.changeTodo(position ,edittext.value);
+              changeTodo(position ,edittext.value);
             }
             else if(edittext.value == ''){//若是空值則刪除。
-              todoList.deleteTodo(position);
+              deleteTodo(position);
             }
           });
         }
       }
     });
   }
-};
-view.setUpEventListeners();
+setUpEventListeners();
+/*********************************
+*
+*            localStorage 儲存todo
+ *************************/
+window.addEventListener("load", function(event){
+  if(localStorage.length === 0){   //load完之後判斷localStorage有沒有東西，如果有就載入，沒有就新增一個todos array
+    var todos = new Array();
+  }
+  else{
+    load();
+  }
+  displayTodos();
+});
+
+function save(){   //將todos存入localStorage，需轉為String
+  var todosJson = JSON.stringify(todos);
+  localStorage.setItem("todos", todosJson);
+}
+
+function load(){  //從localStorage載入todos，從string轉回object
+  var newtodosJSON = localStorage.getItem("todos");
+  var newtodosObject = JSON.parse(newtodosJSON);
+  todos = newtodosObject;
+}
+
+
