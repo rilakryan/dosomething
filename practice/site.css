@@ -1,279 +1,235 @@
-.clear:before,
-.clear:after {
-	content: "";
-	display: table;
-}
-.clear:after {
-	clear: both;
-}
-.clear {
-	clear: both;
-	*zoom: 1;
-}
 
-* {
-	margin :0;
-	padding: 0;
-}
 body {
-	font-family:   sans-serif;
-	background-color:rgb(251, 246, 228);
+     background-color:rgb(251, 246, 228);
 }
 
-#nav1{
-    background-color: #000000;
-    width: 100%;
-	height: 60px;
+
+.l-content {
+    margin: 0 auto;
 }
 
+.l-box {
+    padding: 0.5em 2em;
+}
+
+
+.pure-menu {
+   background-color: #000000;
+}
+#githubicon {
+    width: 25px;
+    background-image: url('img/GitHub-Mark-Light-32px.png');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    margin: 7px 0;
+    padding: 5px 10px;
+    height: 32px;
+}
+#cv{
+    height: 32px;
+    margin: 7px 0px;
+    line-height: 32px;
+}
 #myButton {
-	background-color:transparent;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	border-radius:10px;
-	border:2px solid transparent;
-	display:inline-block;
-	cursor:pointer;
-	color:#FFFFFF;
-	font-family:Arial;
-	font-weight:bold;
-	padding:0px 30px;
-	text-decoration:none;
-	margin:0px 10px 0px 50px;
+    background-color:transparent;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius:10px;
+    border:2px solid transparent;
+    display:inline-block;
+    cursor:pointer;
+    color:#FFFFFF;
+    font-family:Arial;
+    font-weight:bold;
+    padding:0px 30px;
+    text-decoration:none;
+    margin:0px 10px 0px 50px;
 
 }
 #myButton:hover {
-	background-color: #444444;
-	color: #fff;
+    background-color: #444444;
+    color: #fff;
 }
 #myButton:active {
-	position:relative;
+    position:relative;
 }
 #myButton3 {
-	background-color:transparent;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	border-radius:10px;
-	border:2px solid transparent;
-	display:inline-block;
-	cursor:pointer;
-	color:#FFFFFF;
-	font-family:Arial;
-	font-weight:bold;
-	text-decoration:none;
-	margin:0px 10px 0px 20px;
+    background-color:transparent;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius:10px;
+    border:2px solid transparent;
+    display:inline-block;
+    cursor:pointer;
+    color:#FFFFFF;
+    font-family:Arial;
+    font-weight:bold;
+    text-decoration:none;
+    margin:0px 10px 0px 20px;
 
 }
 #myButton3:hover {
 background-color: #444444;
-	color: #fff;
+    color: #fff;
 }
 #myButton3:active {
-	position:relative;
-}
-#githubicon {
-	width: 25px;
-	background-image: url('img/GitHub-Mark-Light-32px.png');
-	background-size: 100% auto;
-	background-repeat: no-repeat;
-	margin: 7px 0;
-	padding: 5px 10px;
-	height: 32px;
-}
-#cv{
-	height: 32px;
-	float: left;
-	margin: 7px 0;
-	padding: 5px 10px;
-	line-height: 32px;
+    position:relative;
 }
 
-#cover {
-	width: 100%;
-	height: 700px;
-	background-image: url('img/001.jpg');
-	display: block;
-    background-repeat: no-repeat;
-    background-position: 10% 0%;
-    background-size: 100% auto;　
+.banner {
+    background: transparent url('img/001.jpg') 0 0 no-repeat fixed;
+    text-align: center;
+    background-size: cover;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/001.jpg', sizingMethod='scale');
+
+    height: 700px;
+    width: 100%;
+    margin-bottom: 3em;
+    display: table;
 }
 
-
-#three{
-	height:500px;
-	background-color: transparent;
-	top: 100px;
-}
-
-#left {
-	width: 350px;
-	height:400px;
-	float: left;
-	margin-top: 30px;
-	margin-left: 350px;
-	background-color:rgb(251, 246, 228);
-	border-top:3px solid #000000;
-}
-#biotext{
-	float: left;
-	background-color:rgb(251, 246, 228);
-	margin:-55px 0px 0px 90px;
-	width: 200px;
-}
-.pbio{
-	padding: 5px 5px 5px 5px; 
-	font-weight:bold;
-}
-
-li{
-	list-style:none; 
-	padding: 5px 5px 5px 25px; 
-	background-color:rgb(251, 246, 228);
-	font-weight:bold;
-}
-
-#mid {
-	width: 350px;
-	height:400px;
-	float: left;
-	margin-top: 30px;
-	margin-left: 50px;
-	background-color:rgb(251, 246, 228);
-	border-top:3px solid #000000;
-
-}
-#right {
-
-	width: 350px;
-	height:400px;
-	float: left;
-	margin-top: 30px;
-	margin-left: 50px;
-	background-color:rgb(251, 246, 228);
-	border-top:3px solid #000000;
-
+ .pricing-tables,
+ .information {
+    max-width: 980px;
+    margin: 0 auto;
+ }
+.pricing-tables {
+    margin-bottom: 3.125em;
+    text-align: center;
 }
 #me{
-	width: 300px;
-	height:300px;
-	margin:10px 25px 0px 25px;
-	background-image: url('img/4.jpg');
-	background-size:80% auto;
-	background-position: 50% 0%;
-	background-repeat:no-repeat;
+    height:250px;
+    background-image: url('img/4.jpg');
+    background-size:contain;
+    background-repeat:no-repeat;
 }
-#pic1{
-	width: 300px;
-	height:400px;
-	margin:10px 25px 0px 25px;
-	background-image: url('img/1.jpg');
-	background-size:80% auto;
-	background-position: 50% 0%;
-	background-repeat:no-repeat;
-}
-#midbutton{
-	width: 350px;
-	height:70px;
-	background-color:rgb(251, 246, 228);
-	margin-top:-80px;
-}
-#leftbutton{
-	width: 350px;
-	height:50px;
-	background-color:rgb(251, 246, 228);
-	margin-top:-195px;
+#biotext{
+    float: left;
+    margin-left: 50px
 }
 
-#text1{
-	float: left;
-	margin-top: 2px;
-	margin-left: 0px;
-	background-color: rgb(251, 246, 228);
-}
-#button1{
-	float: left;
-	margin-top: 25px;
-	margin-left: 10px;
-}
-#button2{
-	float: left;
-	margin-top: 25px;
-	margin-left: 15px;
+#pic1{
+    width: 300px;
+    height:300px;
+    margin:0px 25px 0px 25px;
+    background-image: url('img/1.jpg');
+    background-size:contain;
+    background-repeat:no-repeat;
 }
 #pic2{
-	width: 300px;
-	height:450px;
-	background-image: url('img/2.jpg');
-	margin:10px 25px 0px 25px;
-	background-size:contain;
-	background-repeat:no-repeat;
+    width: 400px;
+    height:300px;
+    background-image: url('img/2.jpg');
+    margin:0px 25px 0px 25px;
+    background-size:contain;
+    background-repeat:no-repeat;
 }
 
+#p1{
+    //margin:10px 0px 10px 40px;
+    font-weight:bold;
+}
+#p2{
+    //margin:10px 0px 10px 40px;
+    font-weight:bold;
+}
+#text1{
+    float: left;
+    margin: 0px 0px 0px 80px;
+    clear: left;
+}
+#text2{
+    float: left;
+    margin: 0px 0px 0px 135px;
+    clear: left;
+}
+/*
+ * -- PRICING TABLE  --
+ * Every pricing table has the .pricing-table class
+ */
+.pricing-table {
+    margin: 0 0.9em 10em;
+}
+
+
+.list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+
+.pbio{
+    font-weight:bold;
+}
+
+.list li {
+    padding: 0.5em 0em 0.5em 0em;
+}
+
+
+
+/*
+ * -- TABLET MEDIA QUERIES --
+ * On tablets, we want to slightly adjust the size of the banner
+ * text and add some vertical space between the various pricing tables
+ */
+@media(min-width: 767px) {
+
+    .banner-head {
+        font-size: 4em;
+    }
+    .pricing-table {
+        margin-left: 20px;
+        margin-bottom: 20px;
+        width: 767px;
+    }
+
+}
+
+/*
+ * -- PHONE MEDIA QUERIES --
+ * On phones, we want to reduce the height and font-size of the banner further
+ */
+@media (min-width: 480px) {
+    .banner {
+        height: 700px;
+    }
+    .banner-head {
+        font-size: 3em;
+    }
+}
+/****/
+
 .myButton1 {
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	border-radius:10px;
-	border:2px solid #eeb44f;
-	//display:inline-block;
-	cursor:pointer;
-	color:#444444;
-	font-family:Arial;
-	font-size:19px;
-	font-weight:bold;
-	padding:15px 15px;
-	text-decoration:none;
-	//margin: 155px 20px 0px 0px;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius:10px;
+    border:2px solid #eeb44f;
+    cursor:pointer;
+    color:#444444;
+    font-family:Arial;
+    font-size:19px;
+    font-weight:bold;
+    padding:15px 15px;
+    text-decoration:none;
 
 }
 .myButton1:hover {
-	background-color:#ffc477;
+    background-color:#ffc477;
 }
 .myButton1:active {
-	position:relative;
-}
-#text2{
-	margin-top: 2px;
-	margin-left: 0px;
-	background-color: rgb(251, 246, 228);
-}
-#p1{
-	margin:25px 0px 0px 5px;
-	font-weight:bold;
-}
-#p2{
-margin:25px 0px 0px 117px;
-font-weight:bold;
+    position:relative;
 }
 
+#button1{
+    float: left;
+    margin:10px 0px 0px 40px;
+    clear: left;
+}
 #button3{
-	float: left;
-	margin-top: 30px;
-	margin-left: 50px;
-}
-#button4{
-	float: left;
-	margin-top: 30px;
-	margin-left: 40px;
-}
-
-.myButton2 {
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	border-radius:10px;
-	border:2px solid #eeb44f;
-	//display:inline-block;
-	cursor:pointer;
-	color:#444444;
-	font-family:Arial;
-	font-size:19px;
-	font-weight:bold;
-	padding:20px 25px;
-	text-decoration:none;
-	//margin: 155px 20px 0px 0px;
-}
-.myButton2:hover {
-	background-color:#ffc477;
-}
-.myButton2:active {
-	position:relative;
+    float: left;
+    margin:10px 0px 0px 90px;
+    clear: left;
 }
