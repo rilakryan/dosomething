@@ -10,7 +10,7 @@
 
 
 
-window.addEventListener("load", function(event){
+/*window.addEventListener("load", function(event){
     setInterval("repeatcover()",3000);
 });
 
@@ -21,4 +21,4 @@ function repeatcover(){
     document.getElementById("cover").style.backgroundImage = "url(img/"+cover[i]+")";
     i++
     if(i>=covernum)  i=0;
-}
+}*/
