@@ -88,7 +88,7 @@ li {
 	width: 30px;
 	height: 30px;
 	line-height: 2.2857143px;
-	text-align: center;
+	//text-align: center;
 	border: 3px solid #0066FF;
 	-webkit-border-radius: 10px;
 	background-color: transparent;
@@ -111,7 +111,7 @@ li {
 	width: 475px ;
 	height:  30px ;
 	padding: 5px 10px 5px 5px;
-	line-height: 2.2857143px;
+	//line-height: 2.2857143px;
 	border: 1px solid transparent;
 	-webkit-border-radius: 0px;
 	font-size: 25px;
@@ -122,16 +122,15 @@ li {
 	margin: 5px 10px 5px 0px;
 	width: 30px;
 	height: 30px;
-	text-align: center;
+	//text-align: center;
 	line-height: 2.2857143px;
 	background-color: transparent;
 	font-size: 25px;
-	color:transparent;
+	//color:transparent;
 	border: 1px solid transparent;
 	transition :color 0.2s ease-out;
 }
 .deleteButton:hover {
-	background-color: transparent;
 	color:rgba(249, 40, 173, 0.58);
 }
 
