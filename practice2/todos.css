@@ -79,7 +79,7 @@ li {
 	background-color: transparent;
 	color: #19a1a7;
 	font-size: 30px;
-	
+
 }
 
 .togglecheckbox {
@@ -88,7 +88,6 @@ li {
 	width: 30px;
 	height: 30px;
 	line-height: 2.2857143px;
-	//text-align: center;
 	border: 3px solid #0066FF;
 	-webkit-border-radius: 10px;
 	background-color: transparent;
@@ -96,7 +95,7 @@ li {
 	font-size: 25px;
 }
 .showtext{
-	display: inline;
+	//display: inline;
 	width: 410px ;
 	height:  30px ;
 	padding: 5px 10px 5px 5px;
@@ -107,11 +106,10 @@ li {
 	word-break: break-all;
 }
 .edittext{
-	display: inline;
+	//display: inline;
 	width: 475px ;
 	height:  30px ;
 	padding: 5px 10px 5px 5px;
-	//line-height: 2.2857143px;
 	border: 1px solid transparent;
 	-webkit-border-radius: 0px;
 	font-size: 25px;
@@ -122,11 +120,10 @@ li {
 	margin: 5px 10px 5px 0px;
 	width: 30px;
 	height: 30px;
-	//text-align: center;
 	line-height: 2.2857143px;
 	background-color: transparent;
 	font-size: 25px;
-	//color:transparent;
+	color:transparent;
 	border: 1px solid transparent;
 	transition :color 0.2s ease-out;
 }
@@ -142,7 +139,7 @@ li {
 	-webkit-border-radius:10px;
 	border-radius:10px;
 	border:2px solid transparent;
-	display:inline-block;
+	display:inline-block;//inline-block 的元素就像 display: inline 的元素一樣，但可以設定 width 與 height 屬性。
 	cursor:pointer;
 	color:#666666;
 	font-family:Arial;
@@ -156,8 +153,8 @@ li {
 	background-color:transparent;
 }
 .myButton:active {
-	position:relative;
-	top:1px;
+	//position:relative;
+	//top:1px;
 }
 /*http://blog.mukispace.com/pseudo-elements-10-examples/  */
 .clear:before,
